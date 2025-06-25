@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
+  <rect x="0" y="0" width="120" height="40" rx="4" fill="#ff6600" />
+  <text x="10" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">湖北电信</text>
+  <path d="M90,10 C95,15 100,15 100,20 C100,25 95,25 90,30" stroke="#ffffff" stroke-width="2" fill="none" />
+  <path d="M100,10 C105,15 110,15 110,20 C110,25 105,25 100,30" stroke="#ffffff" stroke-width="2" fill="none" />
+</svg> 

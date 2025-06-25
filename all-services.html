@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部业务 - 湖北电信</title>
+    <meta name="description" content="湖北电信全部业务，包括移动业务、宽带业务、电视业务、智能家居等各类电信服务">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 业务页面特定样式 */
+        .services-banner {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .services-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .services-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .service-category {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .service-category:last-child {
+            border-bottom: none;
+        }
+        
+        .service-category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .service-category-title i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-right: 1rem;
+        }
+        
+        .service-category-title h2 {
+            font-size: 1.8rem;
+            color: var(--color-text);
+            margin: 0;
+        }
+        
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-item {
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--color-shadow);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px var(--color-shadow);
+        }
+        
+        .service-item-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .service-item-title i {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-right: 0.75rem;
+        }
+        
+        .service-item-title h3 {
+            font-size: 1.25rem;
+            color: var(--color-text);
+            margin: 0;
+        }
+        
+        .service-item p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .service-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-price {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .service-item-footer .btn {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb {
+            padding: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--color-text-light);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb i {
+            margin: 0 0.5rem;
+            color: var(--color-text-lighter);
+        }
+        
+        .breadcrumb span {
+            color: var(--color-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="湖北电信">
+                            <span>湖北电信</span>
+                        </a>
+                    </div>
+                    <div class="mode-toggle">
+                        <button id="dark-mode-toggle" title="切换深浅模式">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                            <li><a href="all-services.html" class="active"><i class="fas fa-th-large"></i> 全部业务</a></li>
+                            <li><a href="mobile-services.html"><i class="fas fa-mobile-alt"></i> 移动业务</a></li>
+                            <li><a href="broadband-services.html"><i class="fas fa-wifi"></i> 宽带业务</a></li>
+                            <li><a href="tv-services.html"><i class="fas fa-tv"></i> 电视业务</a></li>
+                            <li><a href="promotions.html"><i class="fas fa-gift"></i> 优惠活动</a></li>
+                            <li><a href="customer-service.html"><i class="fas fa-headset"></i> 客户服务</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-actions">
+                        <a href="#" class="btn btn-login" id="login-btn"><i class="fas fa-user"></i> 登录</a>
+                        <a href="#" class="btn btn-register" id="register-btn"><i class="fas fa-user-plus"></i> 注册</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 面包屑导航 -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <i class="fas fa-angle-right"></i>
+                <span>全部业务</span>
+            </div>
+        </div>
+        
+        <!-- 业务页面横幅 -->
+        <section class="services-banner">
+            <div class="container">
+                <h1>湖北电信全部业务</h1>
+                <p>为您提供一站式通信解决方案，满足您在移动、宽带、电视和智慧家庭等各方面的需求</p>
+            </div>
+        </section>
+        
+        <!-- 移动业务 -->
+        <section class="service-category">
+            <div class="container">
+                <div class="service-category-title">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h2>移动业务</h2>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-bolt"></i>
+                            <h3>5G畅爽套餐</h3>
+                        </div>
+                        <p>含30GB全国流量、200分钟通话，高速5G网络体验，畅享高清视频和云游戏</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥99/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-rocket"></i>
+                            <h3>5G尊享套餐</h3>
+                        </div>
+                        <p>含100GB全国流量、500分钟通话，支持5G网络，赠送多款视频会员，优先接入</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥199/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-globe"></i>
+                            <h3>全球通套餐</h3>
+                        </div>
+                        <p>支持100+国家和地区漫游，含50GB全国流量、300分钟国内通话，商旅必备</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥138/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-users"></i>
+                            <h3>亲情套餐</h3>
+                        </div>
+                        <p>最多支持5个亲情号码互打免费，含20GB全国流量、100分钟通话，家庭必备</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥79/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>校园套餐</h3>
+                        </div>
+                        <p>针对学生用户特别优惠，含15GB全国流量、100分钟通话，教育APP免流量</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥59/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>商务套餐</h3>
+                        </div>
+                        <p>针对企业用户，含40GB全国流量、500分钟通话，支持多终端共享，发票服务</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥129/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 宽带业务 -->
+        <section class="service-category">
+            <div class="container">
+                <div class="service-category-title">
+                    <i class="fas fa-wifi"></i>
+                    <h2>宽带业务</h2>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>百兆宽带</h3>
+                        </div>
+                        <p>100Mbps光纤宽带，满足基本的网页浏览、视频观看和日常办公需求</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥99/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>千兆宽带</h3>
+                        </div>
+                        <p>1000Mbps超高速光纤宽带，支持多设备同时在线，满足4K视频和游戏需求</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥199/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-building"></i>
+                            <h3>商务宽带</h3>
+                        </div>
+                        <p>专为企业打造的宽带服务，提供固定IP、高速稳定的网络连接和技术支持</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥399/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-home"></i>
+                            <h3>全屋WiFi</h3>
+                        </div>
+                        <p>覆盖全屋的WiFi解决方案，提供多个WiFi扩展器，确保家中无信号死角</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥159/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 电视业务 -->
+        <section class="service-category">
+            <div class="container">
+                <div class="service-category-title">
+                    <i class="fas fa-tv"></i>
+                    <h2>电视业务</h2>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-film"></i>
+                            <h3>标清IPTV</h3>
+                        </div>
+                        <p>标清画质的IPTV服务，提供100+电视频道和基础点播功能</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥20/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-film"></i>
+                            <h3>高清IPTV</h3>
+                        </div>
+                        <p>高清画质的IPTV服务，提供200+电视频道和丰富的点播内容</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥50/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-film"></i>
+                            <h3>4K超高清IPTV</h3>
+                        </div>
+                        <p>4K超高清画质，提供300+电视频道和海量4K点播内容，支持智能语音控制</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥80/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>影视会员</h3>
+                        </div>
+                        <p>IPTV增值服务，提供优质影视内容，包括最新电影和热门剧集</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥30/月</div>
+                            <a href="#" class="btn btn-primary">立即办理</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 智能家居 -->
+        <section class="service-category">
+            <div class="container">
+                <div class="service-category-title">
+                    <i class="fas fa-home"></i>
+                    <h2>智能家居</h2>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-robot"></i>
+                            <h3>智能语音助手</h3>
+                        </div>
+                        <p>智能语音控制设备，支持音乐播放、天气查询、家电控制等功能</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥299</div>
+                            <a href="#" class="btn btn-primary">立即购买</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-video"></i>
+                            <h3>智能监控</h3>
+                        </div>
+                        <p>家庭安防监控系统，支持远程查看、动态检测和云存储功能</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥499</div>
+                            <a href="#" class="btn btn-primary">立即购买</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>智能照明</h3>
+                        </div>
+                        <p>智能灯光控制系统，支持远程控制、定时开关和场景模式设置</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥199起</div>
+                            <a href="#" class="btn btn-primary">立即购买</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-item-title">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>智能门锁</h3>
+                        </div>
+                        <p>指纹/密码/NFC多种解锁方式，支持远程开门和访客密码功能</p>
+                        <div class="service-item-footer">
+                            <div class="service-price">¥999</div>
+                            <a href="#" class="btn btn-primary">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 咨询部分 -->
+        <section class="consultation-section">
+            <div class="container">
+                <div class="consultation-content">
+                    <h2 class="consultation-title">需要更多帮助？</h2>
+                    <p class="consultation-text">如果您对我们的业务有任何疑问，或者需要定制化的解决方案，欢迎随时联系我们的客服团队。</p>
+                    <div class="consultation-actions">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-phone-alt"></i> 电话咨询</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-comment"></i> 在线咨询</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="湖北电信">
+                        <p>世界触手可及</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h4>关于我们</h4>
+                            <ul>
+                                <li><a href="#">公司简介</a></li>
+                                <li><a href="#">新闻中心</a></li>
+                                <li><a href="#">社会责任</a></li>
+                                <li><a href="#">招聘信息</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>业务办理</h4>
+                            <ul>
+                                <li><a href="#">套餐变更</a></li>
+                                <li><a href="#">话费查询</a></li>
+                                <li><a href="#">宽带办理</a></li>
+                                <li><a href="#">移机过户</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>服务支持</h4>
+                            <ul>
+                                <li><a href="#">自助服务</a></li>
+                                <li><a href="#">常见问题</a></li>
+                                <li><a href="#">服务条款</a></li>
+                                <li><a href="#">资费标准</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>联系我们</h4>
+                            <ul>
+                                <li><a href="#">10000客服</a></li>
+                                <li><a href="#">在线客服</a></li>
+                                <li><a href="#">投诉建议</a></li>
+                                <li><a href="#">营业厅查询</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2024 中国电信湖北分公司 版权所有</p>
+                    <p>鄂ICP备xxxxxxxx号-1 | 经营许可证：B1.B2-xxxxxxxx</p>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- 返回顶部按钮 -->
+        <button class="back-to-top" id="back-to-top" title="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <!-- 快速客服入口 -->
+        <div class="quick-service">
+            <div class="quick-service-item">
+                <i class="fas fa-headset"></i>
+                <span>在线客服</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>手机营业厅</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fab fa-weixin"></i>
+                <span>扫码关注</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-comment-dots"></i>
+                <span>意见反馈</span>
+            </div>
+        </div>
+        
+        <!-- 登录弹窗 -->
+        <div class="modal" id="login-modal">
+            <div class="modal-content">
+                <span class="modal-close" id="login-modal-close"><i class="fas fa-times"></i></span>
+                <h3 class="modal-title">账号登录</h3>
+                <form>
+                    <div class="modal-form-group">
+                        <label for="login-phone">手机号码</label>
+                        <input type="tel" id="login-phone" placeholder="请输入手机号码">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="login-password">密码</label>
+                        <input type="password" id="login-password" placeholder="请输入密码">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        <div class="modal-link">
+                            没有账号？<a href="#" id="register-link">立即注册</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- 注册弹窗 -->
+        <div class="modal" id="register-modal">
+            <div class="modal-content">
+                <span class="modal-close" id="register-modal-close"><i class="fas fa-times"></i></span>
+                <h3 class="modal-title">账号注册</h3>
+                <form>
+                    <div class="modal-form-group">
+                        <label for="register-phone">手机号码</label>
+                        <input type="tel" id="register-phone" placeholder="请输入手机号码">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="register-code">验证码</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="register-code" placeholder="请输入验证码" style="flex: 1;">
+                            <button type="button" class="btn btn-outline" style="white-space: nowrap;">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="register-password">设置密码</label>
+                        <input type="password" id="register-password" placeholder="请设置密码">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                        <div class="modal-link">
+                            已有账号？<a href="#" id="login-link">立即登录</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

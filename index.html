@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖北电信 - 中国电信网上营业厅</title>
+    <meta name="description" content="湖北电信网上营业厅，为电信客户提供充值交费、费用查询、业务办理、在线客服、故障申告等全方位的电子自助服务">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <img src="images/logo.svg" alt="湖北电信">
+                        <span>湖北电信</span>
+                    </div>
+                    <div class="mode-toggle">
+                        <button id="dark-mode-toggle" title="切换深浅模式">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html" class="active"><i class="fas fa-home"></i> 首页</a></li>
+                            <li><a href="all-services.html"><i class="fas fa-th-large"></i> 全部业务</a></li>
+                            <li><a href="mobile-services.html"><i class="fas fa-mobile-alt"></i> 移动业务</a></li>
+                            <li><a href="broadband-services.html"><i class="fas fa-wifi"></i> 宽带业务</a></li>
+                            <li><a href="tv-services.html"><i class="fas fa-tv"></i> 电视业务</a></li>
+                            <li><a href="promotions.html"><i class="fas fa-gift"></i> 优惠活动</a></li>
+                            <li><a href="customer-service.html"><i class="fas fa-headset"></i> 客户服务</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-actions">
+                        <a href="#" class="btn btn-login" id="login-btn"><i class="fas fa-user"></i> 登录</a>
+                        <a href="#" class="btn btn-register" id="register-btn"><i class="fas fa-user-plus"></i> 注册</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 搜索栏 -->
+        <div class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" placeholder="输入业务名称、关键词搜索...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 轮播图 -->
+        <section class="banner-section">
+            <div class="container">
+                <div class="banner">
+                    <div class="banner-item active">
+                        <img src="images/banner1.svg" alt="5G优惠活动">
+                    </div>
+                </div>
+                <div class="banner-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 公告栏 -->
+        <section class="announcement">
+            <div class="container">
+                <div class="announcement-inner">
+                    <div class="announcement-label">通知公告</div>
+                    <div class="announcement-content">
+                        <div class="announcement-list">
+                            <div class="announcement-item">湖北电信关于2024年端午节假期业务服务安排的通知</div>
+                            <div class="announcement-item">湖北电信"全家享"套餐促销活动开始啦，多重优惠等你来</div>
+                            <div class="announcement-item">关于湖北地区部分宽带线路升级通知，升级期间可能造成短暂影响</div>
+                        </div>
+                    </div>
+                    <a href="help-center.html" class="announcement-more">更多 <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能导航卡片 -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">电信服务</h2>
+                <div class="card-grid">
+                    <!-- 话费查询 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3>话费查询</h3>
+                        <p>快速查询话费余额及账单明细</p>
+                        <a href="help-center.html" class="card-link">立即查询</a>
+                    </div>
+                    
+                    <!-- 话费充值 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>话费充值</h3>
+                        <p>支持多种方式为手机和宽带充值</p>
+                        <a href="help-center.html" class="card-link">立即充值</a>
+                    </div>
+                    
+                    <!-- 流量查询 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-area"></i>
+                        </div>
+                        <h3>流量查询</h3>
+                        <p>查询流量使用情况及剩余流量</p>
+                        <a href="help-center.html" class="card-link">立即查询</a>
+                    </div>
+                    
+                    <!-- 套餐办理 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>套餐办理</h3>
+                        <p>办理、变更手机套餐及增值业务</p>
+                        <a href="mobile-services.html" class="card-link">立即办理</a>
+                    </div>
+                    
+                    <!-- 宽带业务 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>宽带业务</h3>
+                        <p>宽带办理、续费及提速服务</p>
+                        <a href="broadband-services.html" class="card-link">查看详情</a>
+                    </div>
+                    
+                    <!-- 5G专区 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>5G专区</h3>
+                        <p>体验超高速5G网络及特色应用</p>
+                        <a href="mobile-services.html" class="card-link">了解更多</a>
+                    </div>
+                    
+                    <!-- 电视业务 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>电视业务</h3>
+                        <p>高清电视、点播影视等娱乐服务</p>
+                        <a href="tv-services.html" class="card-link">查看详情</a>
+                    </div>
+                    
+                    <!-- 在线客服 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>在线客服</h3>
+                        <p>7×24小时在线解答各类问题</p>
+                        <a href="customer-service.html" class="card-link">立即咨询</a>
+                    </div>
+                    
+                    <!-- 帮助中心 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>帮助中心</h3>
+                        <p>常见问题解答和使用教程</p>
+                        <a href="help-center.html" class="card-link">查看帮助</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="all-services.html" class="btn btn-outline" style="padding: 0.75rem 2rem;">
+                        <i class="fas fa-th-large"></i> 查看全部业务
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品推荐 -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">热门套餐</h2>
+                <div class="product-grid">
+                    <!-- 5G套餐 -->
+                    <div class="product-card">
+                        <div class="product-tag">热门</div>
+                        <div class="product-title">5G畅爽套餐</div>
+                        <div class="product-price">¥99<span>/月</span></div>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> 30GB全国流量</li>
+                            <li><i class="fas fa-check"></i> 200分钟通话</li>
+                            <li><i class="fas fa-check"></i> 全国无漫游费</li>
+                            <li><i class="fas fa-check"></i> 赠送视频会员</li>
+                        </ul>
+                        <a href="mobile-services.html" class="btn btn-primary">立即办理</a>
+                    </div>
+                    
+                    <!-- 宽带套餐 -->
+                    <div class="product-card">
+                        <div class="product-tag">优惠</div>
+                        <div class="product-title">千兆宽带</div>
+                        <div class="product-price">¥199<span>/月</span></div>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> 1000M光纤宽带</li>
+                            <li><i class="fas fa-check"></i> 赠送IPTV</li>
+                            <li><i class="fas fa-check"></i> 智能组网服务</li>
+                            <li><i class="fas fa-check"></i> 专属客服保障</li>
+                        </ul>
+                        <a href="broadband-services.html" class="btn btn-primary">立即办理</a>
+                    </div>
+                    
+                    <!-- 融合套餐 -->
+                    <div class="product-card highlight">
+                        <div class="product-tag">推荐</div>
+                        <div class="product-title">5G全家桶</div>
+                        <div class="product-price">¥249<span>/月</span></div>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> 100GB全国流量</li>
+                            <li><i class="fas fa-check"></i> 500分钟通话</li>
+                            <li><i class="fas fa-check"></i> 500M宽带</li>
+                            <li><i class="fas fa-check"></i> 4K高清IPTV</li>
+                        </ul>
+                        <a href="all-services.html" class="btn btn-primary">立即办理</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 业务咨询 -->
+        <section class="consultation-section">
+            <div class="container">
+                <div class="consultation-content">
+                    <h2 class="consultation-title">需要专业顾问？</h2>
+                    <p class="consultation-text">不确定哪种套餐最适合您？我们的电信顾问可以为您提供一对一咨询服务，帮您找到最合适的解决方案。</p>
+                    <div class="consultation-actions">
+                        <a href="customer-service.html" class="btn btn-primary"><i class="fas fa-phone-alt"></i> 电话咨询</a>
+                        <a href="customer-service.html" class="btn btn-outline"><i class="fas fa-comment"></i> 在线咨询</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资讯动态 -->
+        <section class="news-section">
+            <div class="container">
+                <h2 class="section-title">电信资讯</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="images/news1.svg" alt="电信新闻">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2024-06-25</span>
+                            <h3>湖北电信5G网络覆盖率达95%，用户体验全面提升</h3>
+                            <p>近日，湖北电信宣布全省5G网络覆盖率已达95%，标志着湖北省5G建设进入新阶段...</p>
+                            <a href="help-center.html" class="news-more">阅读更多</a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="images/news2.svg" alt="电信新闻">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2024-06-20</span>
+                            <h3>中国电信推出全新智慧家庭产品，打造智能生活新体验</h3>
+                            <p>中国电信发布全新智慧家庭产品系列，包括智能家居控制中心、全屋WiFi解决方案等...</p>
+                            <a href="help-center.html" class="news-more">阅读更多</a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="images/news1.svg" alt="电信新闻">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">2024-06-18</span>
+                            <h3>湖北电信携手多家企业推进数字化转型，助力产业升级</h3>
+                            <p>日前，湖北电信与省内多家企业签署战略合作协议，共同推进企业数字化转型进程...</p>
+                            <a href="help-center.html" class="news-more">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 帮助中心 -->
+        <section class="help-section">
+            <div class="container">
+                <h2 class="section-title">帮助中心</h2>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>常见问题</h3>
+                        <p>查看用户常见问题的解答</p>
+                        <a href="help-center.html">查看详情</a>
+                    </div>
+                    
+                    <div class="help-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>故障申报</h3>
+                        <p>在线提交网络或设备故障</p>
+                        <a href="customer-service.html">立即申报</a>
+                    </div>
+                    
+                    <div class="help-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>营业厅查询</h3>
+                        <p>查询附近电信营业厅位置</p>
+                        <a href="customer-service.html">查看地图</a>
+                    </div>
+                    
+                    <div class="help-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>联系我们</h3>
+                        <p>客服热线及其他联系方式</p>
+                        <a href="customer-service.html">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="湖北电信">
+                        <p>世界触手可及</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h4>关于我们</h4>
+                            <ul>
+                                <li><a href="help-center.html">公司简介</a></li>
+                                <li><a href="help-center.html">新闻中心</a></li>
+                                <li><a href="help-center.html">社会责任</a></li>
+                                <li><a href="help-center.html">招聘信息</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>业务办理</h4>
+                            <ul>
+                                <li><a href="mobile-services.html">套餐变更</a></li>
+                                <li><a href="help-center.html">话费查询</a></li>
+                                <li><a href="broadband-services.html">宽带办理</a></li>
+                                <li><a href="customer-service.html">移机过户</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>服务支持</h4>
+                            <ul>
+                                <li><a href="help-center.html">自助服务</a></li>
+                                <li><a href="help-center.html">常见问题</a></li>
+                                <li><a href="help-center.html">服务条款</a></li>
+                                <li><a href="help-center.html">资费标准</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>联系我们</h4>
+                            <ul>
+                                <li><a href="customer-service.html">10000客服</a></li>
+                                <li><a href="customer-service.html">在线客服</a></li>
+                                <li><a href="customer-service.html">投诉建议</a></li>
+                                <li><a href="customer-service.html">营业厅查询</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2024 中国电信湖北分公司 版权所有</p>
+                    <p>鄂ICP备xxxxxxxx号-1 | 经营许可证：B1.B2-xxxxxxxx</p>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- 返回顶部按钮 -->
+        <button class="back-to-top" id="back-to-top" title="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <!-- 快速客服入口 -->
+        <div class="quick-service">
+            <div class="quick-service-item">
+                <i class="fas fa-headset"></i>
+                <span>在线客服</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>手机营业厅</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fab fa-weixin"></i>
+                <span>扫码关注</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-comment-dots"></i>
+                <span>意见反馈</span>
+            </div>
+        </div>
+        
+        <!-- 登录弹窗 -->
+        <div class="modal" id="login-modal">
+            <div class="modal-content">
+                <span class="modal-close" id="login-modal-close"><i class="fas fa-times"></i></span>
+                <h3 class="modal-title">账号登录</h3>
+                <form>
+                    <div class="modal-form-group">
+                        <label for="login-phone">手机号码</label>
+                        <input type="tel" id="login-phone" placeholder="请输入手机号码">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="login-password">密码</label>
+                        <input type="password" id="login-password" placeholder="请输入密码">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        <div class="modal-link">
+                            没有账号？<a href="javascript:void(0)" id="register-link">立即注册</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- 注册弹窗 -->
+        <div class="modal" id="register-modal">
+            <div class="modal-content">
+                <span class="modal-close" id="register-modal-close"><i class="fas fa-times"></i></span>
+                <h3 class="modal-title">账号注册</h3>
+                <form>
+                    <div class="modal-form-group">
+                        <label for="register-phone">手机号码</label>
+                        <input type="tel" id="register-phone" placeholder="请输入手机号码">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="register-code">验证码</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="register-code" placeholder="请输入验证码" style="flex: 1;">
+                            <button type="button" class="btn btn-outline" style="white-space: nowrap;">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="register-password">设置密码</label>
+                        <input type="password" id="register-password" placeholder="请设置密码">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                        <div class="modal-link">
+                            已有账号？<a href="javascript:void(0)" id="login-link">立即登录</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

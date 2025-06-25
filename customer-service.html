@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户服务 - 湖北电信</title>
+    <meta name="description" content="湖北电信客户服务中心，提供故障申报、在线客服、业务办理指南等服务">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 客户服务页面特定样式 */
+        .service-banner {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .service-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .faq-section {
+            padding: 3rem 0;
+            background-color: var(--color-bg-alt);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--color-shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.25rem 1.25rem;
+        }
+        
+        .contact-channels {
+            padding: 3rem 0;
+        }
+        
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .channel-card {
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px var(--color-shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .channel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px var(--color-shadow);
+        }
+        
+        .channel-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .channel-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .channel-info {
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
+        }
+        
+        .channel-info strong {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+        
+        .channel-btn {
+            margin-top: 1rem;
+        }
+        
+        .service-process {
+            padding: 3rem 0;
+            background-color: var(--color-bg-alt);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-border);
+            z-index: 1;
+        }
+        
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .step-desc {
+            text-align: center;
+            max-width: 150px;
+        }
+        
+        .report-section {
+            padding: 3rem 0;
+        }
+        
+        .report-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .report-card {
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px var(--color-shadow);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px var(--color-shadow);
+        }
+        
+        .report-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-title i {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-right: 1rem;
+        }
+        
+        .report-title h3 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        
+        .report-desc {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-steps {
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-step {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: white;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .breadcrumb {
+            padding: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--color-text-light);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb i {
+            margin: 0 0.5rem;
+            color: var(--color-text-lighter);
+        }
+        
+        .breadcrumb span {
+            color: var(--color-text);
+        }
+        
+        @media (max-width: 768px) {
+            .process-steps {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            
+            .process-steps::before {
+                top: 0;
+                left: 35px;
+                width: 2px;
+                height: 100%;
+            }
+            
+            .process-step {
+                flex-direction: row;
+                width: 100%;
+            }
+            
+            .step-number {
+                margin-bottom: 0;
+                margin-right: 1.5rem;
+            }
+            
+            .step-desc {
+                text-align: left;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="湖北电信">
+                            <span>湖北电信</span>
+                        </a>
+                    </div>
+                    <div class="mode-toggle">
+                        <button id="dark-mode-toggle" title="切换深浅模式">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                            <li><a href="all-services.html"><i class="fas fa-th-large"></i> 全部业务</a></li>
+                            <li><a href="mobile-services.html"><i class="fas fa-mobile-alt"></i> 移动业务</a></li>
+                            <li><a href="broadband-services.html"><i class="fas fa-wifi"></i> 宽带业务</a></li>
+                            <li><a href="tv-services.html"><i class="fas fa-tv"></i> 电视业务</a></li>
+                            <li><a href="promotions.html"><i class="fas fa-gift"></i> 优惠活动</a></li>
+                            <li><a href="customer-service.html" class="active"><i class="fas fa-headset"></i> 客户服务</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-actions">
+                        <a href="#" class="btn btn-login" id="login-btn"><i class="fas fa-user"></i> 登录</a>
+                        <a href="#" class="btn btn-register" id="register-btn"><i class="fas fa-user-plus"></i> 注册</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 面包屑导航 -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <i class="fas fa-angle-right"></i>
+                <span>客户服务</span>
+            </div>
+        </div>
+        
+        <!-- 客服页面横幅 -->
+        <section class="service-banner">
+            <div class="container">
+                <h1>湖北电信客户服务</h1>
+                <p>我们提供多种便捷服务渠道，随时解决您的通信需求</p>
+            </div>
+        </section>
+        
+        <!-- 联系渠道 -->
+        <section class="contact-channels">
+            <div class="container">
+                <h2 class="section-title">联系我们</h2>
+                <div class="channel-grid">
+                    <div class="channel-card">
+                        <div class="channel-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="channel-title">客服热线</h3>
+                        <div class="channel-info">
+                            <p>全国统一客服电话</p>
+                            <p><strong>10000</strong></p>
+                            <p>24小时为您服务</p>
+                        </div>
+                        <a href="tel:10000" class="btn btn-primary channel-btn">立即拨打</a>
+                    </div>
+                    
+                    <div class="channel-card">
+                        <div class="channel-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3 class="channel-title">在线客服</h3>
+                        <div class="channel-info">
+                            <p>实时在线解答问题</p>
+                            <p>工作时间: <strong>08:00-22:00</strong></p>
+                            <p>无需排队，快速回复</p>
+                        </div>
+                        <a href="#" class="btn btn-primary channel-btn">立即咨询</a>
+                    </div>
+                    
+                    <div class="channel-card">
+                        <div class="channel-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="channel-title">营业厅</h3>
+                        <div class="channel-info">
+                            <p>线下实体服务网点</p>
+                            <p>工作时间: <strong>09:00-18:00</strong></p>
+                            <p>全省300+网点</p>
+                        </div>
+                        <a href="#" class="btn btn-primary channel-btn">查找网点</a>
+                    </div>
+                    
+                    <div class="channel-card">
+                        <div class="channel-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="channel-title">手机营业厅</h3>
+                        <div class="channel-info">
+                            <p>下载电信手机APP</p>
+                            <p>随时随地办理业务</p>
+                            <p>支持人脸认证快速办理</p>
+                        </div>
+                        <a href="#" class="btn btn-primary channel-btn">立即下载</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 故障申报 -->
+        <section class="report-section">
+            <div class="container">
+                <h2 class="section-title">故障申报</h2>
+                <div class="report-options">
+                    <div class="report-card">
+                        <div class="report-title">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>手机故障</h3>
+                        </div>
+                        <div class="report-desc">
+                            <p>如遇手机信号弱、无法通话、无法上网等问题，可通过以下方式申报故障</p>
+                        </div>
+                        <div class="report-steps">
+                            <div class="report-step">
+                                <div class="step-marker">1</div>
+                                <div>拨打10000客服热线</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">2</div>
+                                <div>按语音提示选择"故障报修"</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">3</div>
+                                <div>详细描述您遇到的问题</div>
+                            </div>
+                        </div>
+                        <a href="tel:10000" class="btn btn-primary">立即报修</a>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-title">
+                            <i class="fas fa-wifi"></i>
+                            <h3>宽带故障</h3>
+                        </div>
+                        <div class="report-desc">
+                            <p>如遇宽带无法连接、网速慢、频繁掉线等问题，可通过以下方式申报故障</p>
+                        </div>
+                        <div class="report-steps">
+                            <div class="report-step">
+                                <div class="step-marker">1</div>
+                                <div>登录湖北电信网上营业厅</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">2</div>
+                                <div>进入"客户服务"-"故障申报"</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">3</div>
+                                <div>填写并提交故障信息</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">在线报修</a>
+                    </div>
+                    
+                    <div class="report-card">
+                        <div class="report-title">
+                            <i class="fas fa-tv"></i>
+                            <h3>电视故障</h3>
+                        </div>
+                        <div class="report-desc">
+                            <p>如遇IPTV无法观看、画面卡顿、遥控器失灵等问题，可通过以下方式申报故障</p>
+                        </div>
+                        <div class="report-steps">
+                            <div class="report-step">
+                                <div class="step-marker">1</div>
+                                <div>打开手机"电信营业厅"APP</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">2</div>
+                                <div>选择"我的"-"电视报修"</div>
+                            </div>
+                            <div class="report-step">
+                                <div class="step-marker">3</div>
+                                <div>选择故障类型并提交</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">APP报修</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 报修流程 -->
+        <section class="service-process">
+            <div class="container">
+                <h2 class="section-title">报修流程</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-desc">报障申请</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-desc">受理确认</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-desc">技术处理</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-desc">回访确认</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-desc">故障解决</div>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--color-text-light);">我们承诺：家庭宽带报修24小时内解决，手机网络故障12小时内处理</p>
+            </div>
+        </section>
+        
+        <!-- 常见问题 -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-container">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <span>如何查询我的手机话费余额？</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>查询话费余额有多种方式：</p>
+                            <ol>
+                                <li>拨打10000按语音提示操作</li>
+                                <li>编辑短信"CXYE"发送至10001</li>
+                                <li>登录湖北电信网上营业厅查询</li>
+                                <li>打开电信营业厅APP查询</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>如何办理宽带提速？</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>宽带提速可通过以下方式办理：</p>
+                            <ol>
+                                <li>登录湖北电信网上营业厅，进入"宽带业务"-"宽带提速"</li>
+                                <li>通过电信营业厅APP，选择"我的"-"宽带"-"提速"</li>
+                                <li>拨打10000客服热线，转人工服务申请提速</li>
+                                <li>前往附近电信营业厅现场办理</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>IPTV电视看不了怎么办？</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>遇到IPTV电视看不了的情况，可尝试以下解决方法：</p>
+                            <ol>
+                                <li>检查电视机和机顶盒连接是否正常</li>
+                                <li>重启机顶盒（拔电源，等待1分钟后重新插入）</li>
+                                <li>检查宽带是否正常工作</li>
+                                <li>联系10000客服报修</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>如何变更套餐？</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>变更套餐可通过以下方式办理：</p>
+                            <ol>
+                                <li>登录湖北电信网上营业厅，进入"我的"-"套餐变更"</li>
+                                <li>通过电信营业厅APP，选择"我的"-"套餐服务"-"套餐变更"</li>
+                                <li>拨打10000客服热线，转人工服务申请套餐变更</li>
+                                <li>前往附近电信营业厅现场办理</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>忘记宽带密码怎么办？</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>忘记宽带密码的解决方法：</p>
+                            <ol>
+                                <li>拨打10000客服热线，验证身份后可重置密码</li>
+                                <li>前往电信营业厅，携带有效身份证件办理密码重置</li>
+                                <li>登录湖北电信网上营业厅，通过实名认证后在"宽带管理"中重置密码</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="湖北电信">
+                        <p>湖北电信网上营业厅</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h4>业务办理</h4>
+                            <ul>
+                                <li><a href="#">套餐查询</a></li>
+                                <li><a href="#">话费充值</a></li>
+                                <li><a href="#">宽带续费</a></li>
+                                <li><a href="#">5G升级</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>热门业务</h4>
+                            <ul>
+                                <li><a href="#">5G套餐</a></li>
+                                <li><a href="#">宽带提速</a></li>
+                                <li><a href="#">视频彩铃</a></li>
+                                <li><a href="#">天翼云</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>客户服务</h4>
+                            <ul>
+                                <li><a href="#">在线客服</a></li>
+                                <li><a href="#">故障申报</a></li>
+                                <li><a href="#">自助服务</a></li>
+                                <li><a href="#">投诉建议</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>关于我们</h4>
+                            <ul>
+                                <li><a href="#">公司简介</a></li>
+                                <li><a href="#">企业责任</a></li>
+                                <li><a href="#">网点分布</a></li>
+                                <li><a href="#">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2024 湖北电信 版权所有 | 鄂ICP备XXXXXXX号 | 电信业务经营许可证：鄂A2-XXXXXX</p>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- 快捷服务 -->
+        <div class="quick-service">
+            <div class="quick-service-item">
+                <i class="fas fa-headset"></i>
+                <span>在线客服</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>手机营业厅</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fab fa-weixin"></i>
+                <span>扫码关注</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-comment-dots"></i>
+                <span>意见反馈</span>
+            </div>
+        </div>
+        
+        <!-- 返回顶部 -->
+        <button id="back-to-top" class="back-to-top" title="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ 折叠/展开功能
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // 切换当前 FAQ 项的激活状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

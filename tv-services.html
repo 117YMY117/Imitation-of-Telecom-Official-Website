@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电视业务 - 湖北电信</title>
+    <meta name="description" content="湖北电信IPTV电视业务，提供高清电视直播、点播、回看等丰富功能">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 电视业务页面特定样式 */
+        .tv-banner {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .tv-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tv-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-box {
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px var(--color-shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px var(--color-shadow);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .feature-description {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-comparison {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        
+        .package-box {
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px var(--color-shadow);
+            min-width: 300px;
+            flex: 1;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .package-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px var(--color-shadow);
+        }
+        
+        .package-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-content {
+            padding: 1.5rem;
+        }
+        
+        .package-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .package-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+        
+        .package-feature i {
+            color: var(--color-primary);
+            margin-right: 0.75rem;
+        }
+        
+        .package-action {
+            text-align: center;
+        }
+        
+        .channel-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title i {
+            color: var(--color-primary);
+            margin-right: 0.75rem;
+        }
+        
+        .channel-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .channel-item {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            color: var(--color-text);
+            transition: all 0.3s;
+        }
+        
+        .channel-item:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+        
+        .device-section {
+            padding: 3rem 0;
+            background-color: var(--color-bg-alt);
+        }
+        
+        .device-preview {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .device-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .device-image i {
+            font-size: 10rem;
+            color: var(--color-primary);
+        }
+        
+        .device-info {
+            flex: 1;
+            padding: 0 2rem;
+        }
+        
+        .device-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .device-description {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .features-list {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-point i {
+            color: var(--color-primary);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .app-section {
+            padding: 3rem 0;
+        }
+        
+        .app-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px var(--color-shadow);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .app-info {
+            flex: 2;
+            padding-right: 2rem;
+        }
+        
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .app-description {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .app-button {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-text);
+            color: white;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .app-button:hover {
+            background-color: var(--color-primary);
+        }
+        
+        .app-button i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        
+        .app-button-text {
+            text-align: left;
+        }
+        
+        .app-button-text small {
+            display: block;
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+        
+        .app-button-text span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .app-qrcode {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .app-qrcode-box {
+            width: 150px;
+            height: 150px;
+            background-color: var(--color-bg-alt);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .app-qrcode-box i {
+            font-size: 5rem;
+            color: var(--color-text);
+        }
+        
+        .app-qrcode p {
+            margin-top: 1rem;
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb {
+            padding: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--color-text-light);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb i {
+            margin: 0 0.5rem;
+            color: var(--color-text-lighter);
+        }
+        
+        .breadcrumb span {
+            color: var(--color-text);
+        }
+        
+        @media (max-width: 768px) {
+            .package-comparison {
+                flex-direction: column;
+            }
+            
+            .package-box {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .device-preview {
+                flex-direction: column;
+            }
+            
+            .device-image {
+                margin-bottom: 2rem;
+            }
+            
+            .device-info {
+                padding: 0;
+            }
+            
+            .app-container {
+                flex-direction: column;
+            }
+            
+            .app-info {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="湖北电信">
+                            <span>湖北电信</span>
+                        </a>
+                    </div>
+                    <div class="mode-toggle">
+                        <button id="dark-mode-toggle" title="切换深浅模式">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                            <li><a href="all-services.html"><i class="fas fa-th-large"></i> 全部业务</a></li>
+                            <li><a href="mobile-services.html"><i class="fas fa-mobile-alt"></i> 移动业务</a></li>
+                            <li><a href="broadband-services.html"><i class="fas fa-wifi"></i> 宽带业务</a></li>
+                            <li><a href="tv-services.html" class="active"><i class="fas fa-tv"></i> 电视业务</a></li>
+                            <li><a href="promotions.html"><i class="fas fa-gift"></i> 优惠活动</a></li>
+                            <li><a href="customer-service.html"><i class="fas fa-headset"></i> 客户服务</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-actions">
+                        <a href="#" class="btn btn-login" id="login-btn"><i class="fas fa-user"></i> 登录</a>
+                        <a href="#" class="btn btn-register" id="register-btn"><i class="fas fa-user-plus"></i> 注册</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 面包屑导航 -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <i class="fas fa-angle-right"></i>
+                <span>电视业务</span>
+            </div>
+        </div>
+        
+        <!-- 电视业务横幅 -->
+        <section class="tv-banner">
+            <div class="container">
+                <h1>湖北电信IPTV</h1>
+                <p>领先的交互式网络电视，为您带来全新家庭娱乐体验</p>
+            </div>
+        </section>
+        
+        <!-- 功能特色 -->
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <h2 class="section-title">IPTV功能特色</h2>
+                <div class="features-grid">
+                    <!-- 直播功能 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h3 class="feature-title">直播电视</h3>
+                        <p class="feature-description">超过200个频道，涵盖央视、卫视及地方特色频道，畅享高清画质</p>
+                        <a href="#" class="btn btn-outline">查看频道</a>
+                    </div>
+                    
+                    <!-- 点播功能 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3 class="feature-title">海量点播</h3>
+                        <p class="feature-description">10000+影视剧、综艺、动漫等内容，随时点播，精彩不断</p>
+                        <a href="#" class="btn btn-outline">浏览内容</a>
+                    </div>
+                    
+                    <!-- 回看功能 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 class="feature-title">7天回看</h3>
+                        <p class="feature-description">错过精彩节目不用愁，支持7天节目回看，精彩不再错过</p>
+                        <a href="#" class="btn btn-outline">了解详情</a>
+                    </div>
+                    
+                    <!-- 4K功能 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-photo-video"></i>
+                        </div>
+                        <h3 class="feature-title">4K超清</h3>
+                        <p class="feature-description">支持4K超高清内容，细节清晰可见，视觉体验更震撼</p>
+                        <a href="#" class="btn btn-outline">了解详情</a>
+                    </div>
+                    
+                    <!-- 云游戏 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">云游戏</h3>
+                        <p class="feature-description">无需下载安装，直接玩转热门游戏，电视秒变游戏机</p>
+                        <a href="#" class="btn btn-outline">查看游戏</a>
+                    </div>
+                    
+                    <!-- 智能推荐 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="feature-title">智能推荐</h3>
+                        <p class="feature-description">基于您的观看习惯，智能推荐喜爱内容，发现更多精彩</p>
+                        <a href="#" class="btn btn-outline">了解详情</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 套餐对比 -->
+        <section style="padding: 3rem 0; background-color: var(--color-bg-alt);">
+            <div class="container">
+                <h2 class="section-title">套餐选择</h2>
+                <div class="package-comparison">
+                    <!-- 标清套餐 -->
+                    <div class="package-box">
+                        <div class="package-header">
+                            <div class="package-title">标清套餐</div>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-price">¥20<span>/月</span></div>
+                            <div class="package-features">
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>60+直播频道</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>标清画质</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>2000+点播内容</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>3天回看</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-times"></i>
+                                    <div>4K超清内容</div>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a href="#" class="btn btn-primary">立即办理</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 高清套餐 -->
+                    <div class="package-box">
+                        <div class="package-header" style="background-color: #e74c3c;">
+                            <div class="package-title">高清套餐</div>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-price">¥30<span>/月</span></div>
+                            <div class="package-features">
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>100+直播频道</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>高清画质</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>5000+点播内容</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>7天回看</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-times"></i>
+                                    <div>4K超清内容</div>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a href="#" class="btn btn-primary">立即办理</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 4K套餐 -->
+                    <div class="package-box">
+                        <div class="package-header" style="background-color: #3498db;">
+                            <div class="package-title">4K尊享套餐</div>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-price">¥50<span>/月</span></div>
+                            <div class="package-features">
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>200+直播频道</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>4K超高清画质</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>10000+点播内容</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>7天回看</div>
+                                </div>
+                                <div class="package-feature">
+                                    <i class="fas fa-check"></i>
+                                    <div>4K专区独享</div>
+                                </div>
+                            </div>
+                            <div class="package-action">
+                                <a href="#" class="btn btn-primary">立即办理</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 频道列表 -->
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <h2 class="section-title">频道列表</h2>
+                
+                <!-- 中央频道 -->
+                <div class="channel-category">
+                    <div class="category-title">
+                        <i class="fas fa-star"></i>
+                        <span>中央频道</span>
+                    </div>
+                    <div class="channel-list">
+                        <div class="channel-item">CCTV-1 综合</div>
+                        <div class="channel-item">CCTV-2 财经</div>
+                        <div class="channel-item">CCTV-3 综艺</div>
+                        <div class="channel-item">CCTV-4 中文国际</div>
+                        <div class="channel-item">CCTV-5 体育</div>
+                        <div class="channel-item">CCTV-6 电影</div>
+                        <div class="channel-item">CCTV-7 国防军事</div>
+                        <div class="channel-item">CCTV-8 电视剧</div>
+                        <div class="channel-item">CCTV-9 纪录</div>
+                        <div class="channel-item">CCTV-10 科教</div>
+                        <div class="channel-item">CCTV-11 戏曲</div>
+                        <div class="channel-item">CCTV-12 社会与法</div>
+                        <div class="channel-item">CCTV-13 新闻</div>
+                        <div class="channel-item">CCTV-14 少儿</div>
+                        <div class="channel-item">CCTV-15 音乐</div>
+                        <div class="channel-item">CCTV-16 奥林匹克</div>
+                        <div class="channel-item">CCTV-17 农业农村</div>
+                    </div>
+                </div>
+                
+                <!-- 卫视频道 -->
+                <div class="channel-category">
+                    <div class="category-title">
+                        <i class="fas fa-globe-asia"></i>
+                        <span>卫视频道</span>
+                    </div>
+                    <div class="channel-list">
+                        <div class="channel-item">湖北卫视</div>
+                        <div class="channel-item">湖南卫视</div>
+                        <div class="channel-item">北京卫视</div>
+                        <div class="channel-item">江苏卫视</div>
+                        <div class="channel-item">浙江卫视</div>
+                        <div class="channel-item">东方卫视</div>
+                        <div class="channel-item">广东卫视</div>
+                        <div class="channel-item">深圳卫视</div>
+                        <div class="channel-item">安徽卫视</div>
+                        <div class="channel-item">四川卫视</div>
+                        <div class="channel-item">重庆卫视</div>
+                        <div class="channel-item">辽宁卫视</div>
+                        <div class="channel-item">黑龙江卫视</div>
+                        <div class="channel-item">东南卫视</div>
+                        <div class="channel-item">山东卫视</div>
+                        <div class="channel-item">河南卫视</div>
+                    </div>
+                </div>
+                
+                <!-- 地方频道 -->
+                <div class="channel-category">
+                    <div class="category-title">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>湖北地方频道</span>
+                    </div>
+                    <div class="channel-list">
+                        <div class="channel-item">湖北经视</div>
+                        <div class="channel-item">湖北综合</div>
+                        <div class="channel-item">武汉新闻综合</div>
+                        <div class="channel-item">武汉电视剧</div>
+                        <div class="channel-item">武汉科技生活</div>
+                        <div class="channel-item">武汉经济</div>
+                        <div class="channel-item">武汉少儿</div>
+                        <div class="channel-item">荆州新闻</div>
+                        <div class="channel-item">宜昌新闻</div>
+                        <div class="channel-item">襄阳新闻</div>
+                        <div class="channel-item">黄石新闻</div>
+                        <div class="channel-item">十堰新闻</div>
+                        <div class="channel-item">孝感新闻</div>
+                    </div>
+                </div>
+                
+                <!-- 特色频道 -->
+                <div class="channel-category">
+                    <div class="category-title">
+                        <i class="fas fa-th"></i>
+                        <span>特色频道</span>
+                    </div>
+                    <div class="channel-list">
+                        <div class="channel-item">4K超清</div>
+                        <div class="channel-item">高清电影</div>
+                        <div class="channel-item">高清剧场</div>
+                        <div class="channel-item">纪录片</div>
+                        <div class="channel-item">少儿动画</div>
+                        <div class="channel-item">体育赛事</div>
+                        <div class="channel-item">音乐现场</div>
+                        <div class="channel-item">戏曲专区</div>
+                        <div class="channel-item">教育频道</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4K超清 -->
+        <section class="device-section">
+            <div class="container">
+                <h2 class="section-title">4K超清体验</h2>
+                <div class="device-preview">
+                    <div class="device-image">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="device-info">
+                        <h3 class="device-title">超高清视听盛宴</h3>
+                        <p class="device-description">4K分辨率是全高清的4倍，画质更加清晰细腻，细节展现更加完美。湖北电信IPTV 4K专区提供丰富的超高清内容，带给您极致视听享受。</p>
+                        <div class="features-list">
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>4K超高清分辨率，画质更加清晰</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>高动态范围(HDR)，色彩更加真实</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>杜比音效，沉浸式声音体验</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>专属4K内容库，持续更新</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">了解详情</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 手机APP -->
+        <section class="app-section">
+            <div class="container">
+                <h2 class="section-title">移动客户端</h2>
+                <div class="app-container">
+                    <div class="app-info">
+                        <h3 class="app-title">天翼高清APP</h3>
+                        <p class="app-description">下载天翼高清APP，随时随地观看您喜爱的电视节目、电影、电视剧等内容，手机、平板与电视多屏互动，让精彩不受时间和地点限制。</p>
+                        <div class="features-list">
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>与家庭电视内容同步，随时随地观看</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>手机遥控电视，远程点播、预约节目</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>离线缓存，无网络也能观看</div>
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle"></i>
+                                <div>小屏投大屏，让手机视频上电视</div>
+                            </div>
+                        </div>
+                        <div class="app-buttons">
+                            <a href="#" class="app-button">
+                                <i class="fab fa-android"></i>
+                                <div class="app-button-text">
+                                    <small>适用于</small>
+                                    <span>Android</span>
+                                </div>
+                            </a>
+                            <a href="#" class="app-button">
+                                <i class="fab fa-apple"></i>
+                                <div class="app-button-text">
+                                    <small>适用于</small>
+                                    <span>iOS</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-qrcode">
+                        <div class="app-qrcode-box">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <p>扫描二维码下载APP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 底部 -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="湖北电信">
+                        <p>湖北电信网上营业厅</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h4>业务办理</h4>
+                            <ul>
+                                <li><a href="#">套餐查询</a></li>
+                                <li><a href="#">话费充值</a></li>
+                                <li><a href="#">宽带续费</a></li>
+                                <li><a href="#">5G升级</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>热门业务</h4>
+                            <ul>
+                                <li><a href="mobile-services.html">5G套餐</a></li>
+                                <li><a href="broadband-services.html">宽带提速</a></li>
+                                <li><a href="#">视频彩铃</a></li>
+                                <li><a href="#">天翼云</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>客户服务</h4>
+                            <ul>
+                                <li><a href="customer-service.html">在线客服</a></li>
+                                <li><a href="customer-service.html">故障申报</a></li>
+                                <li><a href="#">自助服务</a></li>
+                                <li><a href="#">投诉建议</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h4>关于我们</h4>
+                            <ul>
+                                <li><a href="#">公司简介</a></li>
+                                <li><a href="#">企业责任</a></li>
+                                <li><a href="#">网点分布</a></li>
+                                <li><a href="#">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2024 湖北电信 版权所有 | 鄂ICP备XXXXXXX号 | 电信业务经营许可证：鄂A2-XXXXXX</p>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- 快捷服务 -->
+        <div class="quick-service">
+            <div class="quick-service-item">
+                <i class="fas fa-headset"></i>
+                <span>在线客服</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>手机营业厅</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fab fa-weixin"></i>
+                <span>扫码关注</span>
+            </div>
+            <div class="quick-service-item">
+                <i class="fas fa-comment-dots"></i>
+                <span>意见反馈</span>
+            </div>
+        </div>
+        
+        <!-- 返回顶部 -->
+        <button id="back-to-top" class="back-to-top" title="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

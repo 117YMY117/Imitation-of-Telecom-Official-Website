@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="banner-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6600" />
+      <stop offset="100%" stop-color="#ff9966" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="400" fill="url(#banner-gradient)" />
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">湖北电信5G全新套餐</text>
+  <text x="600" y="230" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">速度更快，资费更优，体验更好</text>
+  <rect x="500" y="260" width="200" height="50" rx="25" fill="#ffffff" />
+  <text x="600" y="292" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6600" text-anchor="middle">立即了解</text>
+  
+  <!-- 装饰元素 -->
+  <circle cx="900" cy="150" r="50" fill="#ffffff" fill-opacity="0.2" />
+  <circle cx="950" cy="200" r="30" fill="#ffffff" fill-opacity="0.2" />
+  <circle cx="300" cy="250" r="40" fill="#ffffff" fill-opacity="0.2" />
+  <circle cx="250" cy="180" r="25" fill="#ffffff" fill-opacity="0.2" />
+</svg> 
